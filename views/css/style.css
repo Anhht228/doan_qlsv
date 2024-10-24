@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.body-home, .body-login {
+    background: url(../images/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.black-fill {
+    background: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+}
+#homenav {
+    background: rgb(255, 255, 255) !important;
+    border-radius: 3px;
+}
+.welcome-text {
+    min-height: 80vh;
+    border-radius: 3px;
+}
+.welcome-text img {
+    color: #eee;
+    font-size: 51px;
+}
+.welcome-text h4 {
+    color: #eee;
+    font-size: 51px;
+    font-family: "Lobster", sans-serif;
+
+}
+.welcome-text p {
+    color: #222;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 3px;
+}
+#about {
+    min-height: 100vh;
+    border-radius: 3px;
+
+
+}
+#about .card-1 {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 3px;
+
+}
+#about .card-1 h5 {
+    
+    font-family: "Lobster", sans-serif;
+    font-size: 35px;    
+}
+#contact {
+    min-height: 100vh;
+}
+#contact form {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 3px;
+}
+#contact form h3 {
+    text-align: center;
+    font-family: "Lobster", sans-serif;
+    
+}
+textarea {
+    resize:none ;
+}
+.login {
+    max-width: 500px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 3px;
+}
+.login h4 {
+    text-align: center;
+    font-size: 40px;
+}
