@@ -169,6 +169,32 @@ if(isset($_GET['act'])){
       }
         include "./giangvien/ds_giangvien.php";
         break;
+      // case dùng để sửa giảng viên--------
+      case 'sua_giangvien':
+        if(isset($_GET['id']) && ($_GET['id']>0)){
+          $sql = "SELECT * FROM tblgiangvien WHERE id=".$_GET['id'];
+          $giangv = pdo_query_one($sql);
+        }
+        include "./giangvien/update_giangvien.php";
+        break;
+      case 'update_giangvien':
+        if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+          $tengiangvien = $_POST['TenGV'];
+          $magiangvien = $_POST['MaGV'];
+          $id_khoa = $_POST['id_Khoa'];;
+          $id = $_POST['id'];
+          $sql = "UPDATE tblgiangvien 
+                  SET TenGV = '".$tengiangvien."', MaGV = '".$magiangvien."', id_Khoa = '".$id_khoa."' 
+                  WHERE id=".$id;
+
+          pdo_execute($sql);
+          $message = "Cập nhật thành công";
+        // gọi lại danh sách sau khi cập nhật giảng viên
+        $sql = "SELECT * FROM tblgiangvien ORDER BY id DESC";
+        $dshocphan = pdo_query($sql);
+        include "./giangvien/ds_giangvien.php";
+        break;
+        }         
 //-----------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------      
       // case dùng để add sinh viên
@@ -215,6 +241,30 @@ if(isset($_GET['act'])){
           }
           include "./sinhvien/ds_sinhvien.php";
           break;
+        // case dùng để sửa sinh viên--------
+      case 'sua_sinhvien':
+        if(isset($_GET['id']) && ($_GET['id']>0)){
+          $sql = "SELECT * FROM tblsinhvien WHERE id=".$_GET['id'];
+          $sinhv = pdo_query_one($sql);
+        }
+        include "./sinhvien/update_sinhvien.php";
+        break;
+      case 'update_sinhvien':
+        if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+          $tensinhvien = $_POST['TenSV'];
+          $masinhvien = $_POST['MaSV'];
+          $ngaysinh = $_POST['NgaySinh'];
+          $id = $_POST['id'];
+          $sql = "UPDATE tblsinhvien 
+          SET TenSV = '".$tensinhvien."', MaSV = '".$masinhvien."', NgaySinh = '".$ngaysinh."' 
+          WHERE id=".$id;
+          pdo_execute($sql);
+          $message = "Cập nhật thành công";
+        }
+        $sql = "SELECT * FROM tblsinhvien ORDER BY id DESC";
+        $dssinhvien = pdo_query($sql);
+        include "./sinhvien/ds_sinhvien.php";
+        break;
 //-----------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------
       // case dùng để add học phần vào csdl
@@ -254,6 +304,32 @@ if(isset($_GET['act'])){
         $dshocphan = pdo_query($sql);
         include "./hocphan/ds_hocphan.php";
         break;
+      // case dùng để sửa học phần--------
+      case 'sua_hocphan':
+        if(isset($_GET['id']) && ($_GET['id']>0)){
+          $sql = "SELECT * FROM tblhocphan WHERE id=".$_GET['id'];
+          $hocp = pdo_query_one($sql);
+        }
+        include "./hocphan/update_hocphan.php";
+        break;
+      case 'update_hocphan':
+        if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+          $tenhocphan = $_POST['TenHP'];
+          $mahocphan = $_POST['MaHP'];
+          $sotinchi = $_POST['SoTC'];
+          $id = $_POST['id'];
+          $sql = "UPDATE tblhocphan 
+                  SET TenHP = '".$tenhocphan."', MaHP = '".$mahocphan."', SoTC = '".$sotinchi."' 
+                  WHERE id=".$id;
+
+          pdo_execute($sql);
+          $message = "Cập nhật thành công";
+        // gọi lại danh sách sau khi cập nhật học phần
+        $sql = "SELECT * FROM tblhocphan ORDER BY id DESC";
+        $dshocphan = pdo_query($sql);
+        include "./hocphan/ds_hocphan.php";
+        break;
+        }       
 //-----------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------
       // case dùng để add điểm

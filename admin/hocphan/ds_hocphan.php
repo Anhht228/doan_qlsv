@@ -22,8 +22,8 @@
                                         //duyệt qua danh sách học phần
                                         foreach ($dshocphan as $hocphan) {
                                             // Tạo URL cho Sửa và Xoá dựa trên id của học phần
-                                            $suahp = "index.php?act=sua_hp&id=" . $hocphan['id'];
-                                            $xoahp = "index.php?act=xoa_hp&id=" . $hocphan['id'];
+                                            $suahp = "index.php?act=sua_hocphan&id=" . $hocphan['id'];
+                                            $xoahp = "index.php?act=xoa_hocphan&id=" . $hocphan['id'];
                                             echo "<tr>";
                                             echo "<td>" . $hocphan['TenHP'] . "</td>";
                                             echo "<td>" . $hocphan['MaHP'] . "</td>";
